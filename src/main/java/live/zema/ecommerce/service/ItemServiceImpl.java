@@ -1,5 +1,6 @@
 package live.zema.ecommerce.service;
 
+import live.zema.ecommerce.domain.Item;
 import live.zema.ecommerce.repository.ItemRepository;
 import live.zema.ecommerce.web.mapper.ItemMapper;
 import live.zema.ecommerce.web.model.ItemDto;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 /**
  * @author danielniguse
@@ -24,4 +27,12 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.findAll().forEach(eachItem -> listOfItems.add(itemMapper.itemToItemDto(eachItem)));
         return listOfItems;
     }
+
+    @Override
+    public Optional<ItemDto> getItem(UUID id) {
+        Optional<Item> result = itemRepository.findById(id);
+        return result.isEmpty() ? Optional.empty() : Optional.of(itemMapper.itemToItemDto(result.get()));
+    }
+
+
 }

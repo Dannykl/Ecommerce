@@ -1,7 +1,6 @@
 package live.zema.ecommerce.domain;
 
 import lombok.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,14 +21,14 @@ public class LineItem {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
-    UUID id;
+    private UUID id;
 
-    int quantity;
+    private int quantity;
 
     @ManyToOne
-    Order order;
+    private Order order;
 
-    @ManyToOne()
-    @Cascade({org.hibernate.annotations.CascadeType.ALL})
-    Item item;
+    @ManyToOne
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
 }

@@ -2,18 +2,13 @@ package live.zema.ecommerce.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
-import live.zema.ecommerce.domain.LineItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Null;
-import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -37,7 +32,7 @@ public class OrderDto {
     private OffsetDateTime createdDate;
 
     @NotNull
-    private List<LineItem> lineItemsDto;
+    private List<LineItemDto> lineItemsDto;
 
 //    Customer customer;
 }

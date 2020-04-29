@@ -1,8 +1,6 @@
 package live.zema.ecommerce.domain;
 
 import lombok.*;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,21 +19,24 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "Customer_Order")
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
-    UUID id;
+    private UUID id;
 
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdDate;
 
-    @OneToMany()
-    @Cascade({CascadeType.ALL})
-    List<LineItem> lineItems;
-//    Customer customer;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private List<LineItem> lineItems;
+
+//    @OneToOne
+//    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+//    private Customer customer;
 }
