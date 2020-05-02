@@ -37,4 +37,13 @@ public class ItemController {
     ResponseEntity getItems() {
         return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
     }
+
+    //TODO (ADMIN)
+    // CREATE the product
+
+    //TODO (ADMIN)
+    // UPDATE the product
+
+    //TODO (ADMIN)
+    // DELETE the product
 }

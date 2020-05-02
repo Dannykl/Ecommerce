@@ -8,5 +8,7 @@ import java.util.UUID;
 /**
  * @author danielniguse
  */
+
 public interface OrderRepository extends PagingAndSortingRepository<Order, UUID> {
+
 }
