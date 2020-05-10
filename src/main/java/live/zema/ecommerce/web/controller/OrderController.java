@@ -7,11 +7,9 @@ import live.zema.ecommerce.web.model.LineItemDto;
 import live.zema.ecommerce.web.model.OrderDto;
 import live.zema.ecommerce.web.model.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +26,7 @@ public class OrderController {
     final ItemService itemService;
     final UserService userService;
 
+    //    @RequestMapping(value = "/{authorId}/book",
     @PostMapping
     ResponseEntity<?> placeOrder(@RequestBody OrderDto orderDto) {
         List<LineItemDto> listOfILineItems = new ArrayList<>();
@@ -57,12 +56,24 @@ public class OrderController {
         }
     }
 
+    @GetMapping
+    ResponseEntity finaAllOrders() {
+
+        return new ResponseEntity(orderService.findAllOrder(), HttpStatus.OK);
+    }
+
     //TODO
     //list all orders for specific user
 //    @GetMapping({"/{email}"})
-//    ResponseEntity getAllOrders(@PathVariable String email) {
-//        orderService.getAllOrders(email);
+//    ResponseEntity getAllOrdersByUserEmail(@PathVariable String email) {
+//        orderService.findByUser(email);
 //        return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
+//    }
+
+//    @GetMapping("/posts/{postId}/comments")
+//    public Page<Comment> getAllCommentsByPostId(@PathVariable (value = "postId") Long postId,
+//                                                Pageable pageable) {
+//        return commentRepository.findByPostId(postId, pageable);
 //    }
 
 

@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.controller;
+package live.zema.ecommerce.web.exception;
 
 public class NotFoundException extends RuntimeException {
 }
