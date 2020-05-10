@@ -2,14 +2,10 @@ package live.zema.ecommerce.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.UUID;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -17,20 +13,22 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "customer")
 public class User {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
-    private UUID id;
 
+    @Id
     private String email;
 
     private String password;
 
     private RoleType roleType;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Order> orders;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdDate;
+
+
 }

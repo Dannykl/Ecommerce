@@ -2,6 +2,7 @@ package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.service.UserService;
 import live.zema.ecommerce.web.model.UserDto;
+import live.zema.ecommerce.web.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,26 +22,41 @@ import java.util.Optional;
 @RequestMapping("/api/v1/user")
 @RestController
 public class UserController {
-
+    private final UserService userService;
+    //private final UserValidator userValidator;
+    private final PasswordConfig passwordConfig;
 
     //sign-up
-//    @PostMapping
-//    ResponseEntity<?> signUp(@RequestBody UserDto userDto) {
-//        userDto.
-//        return ResponseEntity;
-//    }
+    @PostMapping(path = "/sign-up")
+    ResponseEntity<?> signUp(@RequestBody UserDto userData) {
+        System.out.println(userData);
+        Optional<UserDto> user = userService.findByEmail(userData.getEmail());
+        if (!user.isEmpty()) {
+            return ResponseEntity.badRequest()
+                    .body(userData.getEmail() + " is already exists on our system");
+        }
+        //TODO
+        //user validator eg. email, length of password
+        //UserValidator.validate(userData);
 
-    private final UserService userService;
+        userData.setPassword(passwordConfig.hashPassword(userData.getPassword()));
+        UserDto userDto = userService.save(userData);
+        return new ResponseEntity(userDto, HttpStatus.CREATED);
+    }
 
     @PostMapping(path = "/login")
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
         Optional<UserDto> userDto = userService.findByEmail(userData.get("email"));
-        System.out.println(userDto);
-        System.out.println(userDto);
         if (userDto.isEmpty()) {
             return ResponseEntity.badRequest()
                     .body(userData.get("email") + " was not found ");
+        }
+        boolean found = passwordConfig.checkPassword(userData.get("password"), userDto.get().getPassword());
+
+        if (!found) {
+            return ResponseEntity.badRequest()
+                    .body("Incorrect password ");
         }
         return new ResponseEntity(userDto, HttpStatus.OK);
     }

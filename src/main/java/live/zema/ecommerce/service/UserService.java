@@ -9,4 +9,7 @@ import java.util.Optional;
  */
 public interface UserService {
     Optional<UserDto> findByEmail(String email);
+
+    UserDto save(UserDto userDto);
+
 }

@@ -36,7 +36,6 @@ public class Order {
     @JoinColumn(name = "order_id")
     private List<LineItem> lineItems;
 
-//    @OneToOne
-//    @JoinColumn(name = "customer_id", referencedColumnName = "id")
-//    private Customer customer;
+    @ManyToOne
+    private User user;
 }

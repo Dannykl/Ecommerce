@@ -41,8 +41,5 @@ public class Item {
     @Column(updatable = false)
     private Timestamp createdDate;
 
-    // Product does not need
-    // to know about line_items
-
 
 }

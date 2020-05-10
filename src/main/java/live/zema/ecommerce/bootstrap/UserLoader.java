@@ -2,6 +2,7 @@ package live.zema.ecommerce.bootstrap;
 
 import live.zema.ecommerce.domain.User;
 import live.zema.ecommerce.repository.UserRepository;
+import live.zema.ecommerce.web.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 public class UserLoader implements CommandLineRunner {
 
     private final UserRepository userRepository;
+    private final PasswordConfig passwordConfig;
 
     @Override
     public void run(String... args) throws Exception {
@@ -24,8 +26,15 @@ public class UserLoader implements CommandLineRunner {
     private void loadUserObjects() {
         if (userRepository.count() == 0) {
             userRepository.save(User.builder()
-                    .email("daniel@gmail.com")
-                    .password("pass")
+                    .email("danielniguse@gmail.com")
+                    .password(
+                            passwordConfig.hashPassword("pass"))
+                    .build());
+
+            userRepository.save(User.builder()
+                    .email("birukdaniel@gmail.com")
+                    .password(
+                            passwordConfig.hashPassword("pass"))
                     .build());
         }
     }

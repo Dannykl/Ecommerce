@@ -6,6 +6,7 @@ import live.zema.ecommerce.domain.Order;
 import live.zema.ecommerce.repository.OrderRepository;
 import live.zema.ecommerce.web.mapper.DateMapper;
 import live.zema.ecommerce.web.mapper.OrderMapper;
+import live.zema.ecommerce.web.mapper.UserMapper;
 import live.zema.ecommerce.web.model.LineItemDto;
 import live.zema.ecommerce.web.model.OrderDto;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
     private final DateMapper dateMapper;
+    private final UserMapper userMapper;
 
     @Override
     public OrderDto placeOrder(OrderDto orderDto) {
@@ -42,7 +44,9 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = new Order(
                 orderDto.getId(),
-                dateMapper.asTimestamp(orderDto.getCreatedDate()), listOfLineItems);
+                dateMapper.asTimestamp(orderDto.getCreatedDate()), listOfLineItems, userMapper.userDtoToUser(orderDto.getUserDto()));
         return orderMapper.orderToOrderDto(orderRepository.save(order));
     }
+
+
 }

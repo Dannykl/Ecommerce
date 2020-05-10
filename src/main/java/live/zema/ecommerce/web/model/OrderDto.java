@@ -1,13 +1,13 @@
 package live.zema.ecommerce.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -34,5 +34,6 @@ public class OrderDto {
     @NotNull
     private List<LineItemDto> lineItemsDto;
 
-//    Customer customer;
+    @NotNull
+    UserDto userDto;
 }

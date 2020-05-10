@@ -38,8 +38,5 @@ public class ItemDto {
     @Null
     private OffsetDateTime createdDate;
 
-    // Product does not need
-    // to know about line_items
-
 
 }
