@@ -21,9 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<UserDto> findByEmail(String email) {
         Optional<User> user = userRepository.findByEmail(email);
-        System.out.println("user get " + user.get());
-        UserDto u = userMapper.userToUserDto(user.get());
-        System.out.println(u);
         return user.isEmpty() ? Optional.empty() : Optional.of(userMapper.userToUserDto(user.get()));
+    }
+
+    @Override
+    public UserDto save(UserDto userDto) {
+        return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
     }
 }
