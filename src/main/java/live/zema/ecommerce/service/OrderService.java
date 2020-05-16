@@ -2,6 +2,7 @@ package live.zema.ecommerce.service;
 
 import live.zema.ecommerce.web.model.OrderDto;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,6 +13,7 @@ public interface OrderService {
 
     Set<OrderDto> findAllOrder();
 
-//    Set<Order> findByUser(String userDto);
+    List<OrderDto> findCustomerOrder(String email);
+
 
 }

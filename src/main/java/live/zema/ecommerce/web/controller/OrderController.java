@@ -64,17 +64,9 @@ public class OrderController {
 
     //TODO
     //list all orders for specific user
-//    @GetMapping({"/{email}"})
-//    ResponseEntity getAllOrdersByUserEmail(@PathVariable String email) {
-//        orderService.findByUser(email);
-//        return new ResponseEntity(itemService.getAllItems(), HttpStatus.OK);
-//    }
-
-//    @GetMapping("/posts/{postId}/comments")
-//    public Page<Comment> getAllCommentsByPostId(@PathVariable (value = "postId") Long postId,
-//                                                Pageable pageable) {
-//        return commentRepository.findByPostId(postId, pageable);
-//    }
-
+    @GetMapping({"/{email}"})
+    ResponseEntity getAllOrdersByUserEmail(@PathVariable String email) {
+        return new ResponseEntity(orderService.findCustomerOrder(email), HttpStatus.OK);
+    }
 
 }

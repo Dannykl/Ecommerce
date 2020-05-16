@@ -5,9 +5,13 @@ import live.zema.ecommerce.domain.LineItem;
 import live.zema.ecommerce.domain.Order;
 import live.zema.ecommerce.domain.User;
 import live.zema.ecommerce.repository.OrderRepository;
-import live.zema.ecommerce.web.mapper.*;
+import live.zema.ecommerce.web.mapper.DateMapper;
+import live.zema.ecommerce.web.mapper.OrderMapper;
+import live.zema.ecommerce.web.mapper.UserMapper;
+import live.zema.ecommerce.web.model.ItemDto;
 import live.zema.ecommerce.web.model.LineItemDto;
 import live.zema.ecommerce.web.model.OrderDto;
+import live.zema.ecommerce.web.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +31,9 @@ public class OrderServiceImpl implements OrderService {
     private final OrderMapper orderMapper;
     private final DateMapper dateMapper;
     private final UserMapper userMapper;
-    private final LineItemMapper lineItemMapper;
-    private final ItemMapper itemMapper;
 
-    //TODO refactoring required
+
+    //TODO refactoring is required
     @Override
     public OrderDto placeOrder(OrderDto orderDto) {
 
@@ -66,25 +69,44 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    //TODO itemDto needs to handled and passed to client. at the moment it shows null
-    private List<LineItemDto> lineItemToLineItemDto(List<LineItem> lineItem) {
-        List<LineItemDto> items = new ArrayList<>();
+    @Override
+    public List<OrderDto> findCustomerOrder(String email) {
+        var orders = orderRepository.findAll();
+        List<OrderDto> ordersDto = new ArrayList<>();
 
-        lineItem.forEach(item -> items.add((lineItemMapper.lineItemToLineItemDto(new LineItem(
-                item.getId(),
-                item.getQuantity(),
-                null,
-                new Item(
-                        item.getItem().getId(),
-                        item.getItem().getName(),
-                        item.getItem().getDescription(),
-                        item.getItem().getPrice(),
-                        item.getItem().getCreatedDate()))))
-        ));
-        System.out.println(items);
-        System.out.println(items);
-        return items;
+        for (Order i : orders) {
+            if (i.getUser().getEmail().equals(email)) {
+                ordersDto.add(new OrderDto(
+                        i.getId(),
+                        dateMapper.asOffsetDateTime(i.getCreatedDate()),
+                        lineItemToLineItemDto(i.getLineItems())
+                        , new UserDto(
+                        i.getUser().getEmail(), null, null, null, null)));
+            }
+        }
+        return ordersDto;
     }
 
+
+    private List<LineItemDto> lineItemToLineItemDto(List<LineItem> lineItem) {
+
+        List<LineItemDto> items = new ArrayList<>();
+        ItemDto product;
+        LineItemDto lineItemDto;
+        for (LineItem x : lineItem) {
+            product = new ItemDto(
+                    x.getItem().getId(),
+                    x.getItem().getName(),
+                    x.getItem().getDescription(),
+                    x.getItem().getPrice(),
+                    dateMapper.asOffsetDateTime(x.getItem().getCreatedDate()));
+
+            lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
+                    orderMapper.orderToOrderDto(x.getOrder()), product);
+            items.add(lineItemDto);
+
+        }
+        return items;
+    }
 
 }
