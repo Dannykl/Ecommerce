@@ -23,7 +23,7 @@ import java.util.UUID;
 public class ItemDto {
     @Id
     @Null
-    private UUID id;
+    private long id;
 
     @NotBlank
     private String name;

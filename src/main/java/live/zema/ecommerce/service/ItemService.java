@@ -12,6 +12,6 @@ import java.util.UUID;
 public interface ItemService {
     List<ItemDto> getAllItems();
 
-    Optional<ItemDto> getItem(UUID id);
+    Optional<ItemDto> getItem(long id);
 
 }

@@ -9,7 +9,7 @@ import java.util.UUID;
  * @author danielniguse
  */
 
-public interface OrderRepository extends PagingAndSortingRepository<Order, UUID> {
+public interface OrderRepository extends PagingAndSortingRepository<Order, Long> {
 //    Set<Order> findByUser(String user);
 
 }

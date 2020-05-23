@@ -56,13 +56,14 @@ public class OrderController {
         }
     }
 
+    //TODO RETURN NESTED DATA - EACH NESTED DATA IS IDENTICAL
     @GetMapping
     ResponseEntity finaAllOrders() {
 
         return new ResponseEntity(orderService.findAllOrder(), HttpStatus.OK);
     }
 
-    //TODO
+    //TODO should be secured
     //list all orders for specific user
     @GetMapping({"/{email}"})
     ResponseEntity getAllOrdersByUserEmail(@PathVariable String email) {

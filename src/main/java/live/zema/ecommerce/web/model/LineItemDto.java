@@ -20,7 +20,7 @@ import java.util.UUID;
 public class LineItemDto {
     @Id
     @Null
-    private UUID id;
+    private long id;
 
     private int quantity;
 

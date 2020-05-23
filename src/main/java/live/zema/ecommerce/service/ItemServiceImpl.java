@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Optional<ItemDto> getItem(UUID id) {
+    public Optional<ItemDto> getItem(long id) {
         Optional<Item> result = itemRepository.findById(id);
         return result.isEmpty() ? Optional.empty() : Optional.of(itemMapper.itemToItemDto(result.get()));
     }

@@ -24,7 +24,7 @@ public class ItemController {
     final ItemService itemService;
 
     @GetMapping({"/{id}"})
-    ResponseEntity<?> getItem(@PathVariable UUID id) {
+    ResponseEntity<?> getItem(@PathVariable long id) {
         Optional<ItemDto> item = itemService.getItem(id);
 
         if (item.isEmpty()) {

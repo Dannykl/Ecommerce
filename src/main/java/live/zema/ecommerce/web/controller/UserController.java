@@ -44,10 +44,13 @@ public class UserController {
         return new ResponseEntity(userDto, HttpStatus.CREATED);
     }
 
+    //TODO returns identical nested data, CHECK THE DATA IS RETURNED FROM DATABASE, AND SEE THE CONVERSION FROM ENTITY TO DTO
     @PostMapping(path = "/login")
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
         Optional<UserDto> userDto = userService.findByEmail(userData.get("email"));
+        System.out.println(userDto);
+        System.out.println(userDto);
         if (userDto.isEmpty()) {
             return ResponseEntity.badRequest()
                     .body(userData.get("email") + " was not found ");

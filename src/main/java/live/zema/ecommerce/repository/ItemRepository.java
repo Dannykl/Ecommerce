@@ -8,5 +8,5 @@ import java.util.UUID;
 /**
  * @author danielniguse
  */
-public interface ItemRepository extends PagingAndSortingRepository<Item, UUID> {
+public interface ItemRepository extends PagingAndSortingRepository<Item, Long> {
 }

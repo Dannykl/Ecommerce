@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 public class User {
 
     @Id
@@ -21,13 +21,14 @@ public class User {
 
     private String password;
 
+    @Column(name = "role_type")
     private RoleType roleType;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Order> orders;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(updatable = false, name = "created_date")
     private Timestamp createdDate;
 
 
