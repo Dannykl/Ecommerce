@@ -3,6 +3,7 @@
 ######################
 /build/www/**
 /src/main/resources/service-account.json
+/src/main/resources/service-account.json
 
 ######################
 # Node
