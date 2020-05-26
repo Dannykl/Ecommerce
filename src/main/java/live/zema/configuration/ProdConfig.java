@@ -1,0 +1,16 @@
+package live.zema.configuration;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
+
+/**
+ * @author danielniguse
+ */
+@Component
+@Profile("prod")
+public class ProdConfig implements Config {
+    @Override
+    public void setup() {
+        System.out.println("Setting up datasource for PRODUCTION environment. ");
+    }
+}
