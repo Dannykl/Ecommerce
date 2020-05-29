@@ -3,8 +3,6 @@ package live.zema.ecommerce.repository;
 import live.zema.ecommerce.domain.Order;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import java.util.UUID;
-
 /**
  * @author danielniguse
  */
