@@ -66,6 +66,8 @@ public class OrderServiceImpl implements OrderService {
                     userMapper.userToUserDto(new User(i.getUser().getEmail(), null,
                             i.getUser().getRoleType(), i.getUser().getOrders(), i.getUser().getCreatedDate()))));
         }
+        System.out.println(example);
+        System.out.println(example);
         return orders;
     }
 
