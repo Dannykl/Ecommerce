@@ -63,11 +63,13 @@ public class OrderServiceImpl implements OrderService {
         for (Order i : example) {
             orders.add(new OrderDto(i.getId(), dateMapper.asOffsetDateTime(i.getCreatedDate()),
                     lineItemToLineItemDto(i.getLineItems()),
-                    userMapper.userToUserDto(new User(i.getUser().getEmail(), null,
-                            i.getUser().getRoleType(), i.getUser().getOrders(), i.getUser().getCreatedDate()))));
+                    userMapper.userToUserDto(
+                            new User(i.getUser().getEmail(), null,
+                                    i.getUser().getRoleType(), null, i.getUser().getCreatedDate()))
+
+            ));
         }
-        System.out.println(example);
-        System.out.println(example);
+
         return orders;
     }
 
@@ -103,8 +105,11 @@ public class OrderServiceImpl implements OrderService {
                     x.getItem().getPrice(),
                     dateMapper.asOffsetDateTime(x.getItem().getCreatedDate()));
 
+//            lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
+//                    orderMapper.orderToOrderDto(x.getOrder()), product);
+
             lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
-                    orderMapper.orderToOrderDto(x.getOrder()), product);
+                    null, product);
             items.add(lineItemDto);
 
         }
