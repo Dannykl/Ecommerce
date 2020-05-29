@@ -59,7 +59,6 @@ public class OrderController {
     //TODO RETURN NESTED DATA - EACH NESTED DATA IS IDENTICAL
     @GetMapping
     ResponseEntity finaAllOrders() {
-
         return new ResponseEntity(orderService.findAllOrder(), HttpStatus.OK);
     }
 
