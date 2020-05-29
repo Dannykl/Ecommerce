@@ -34,5 +34,8 @@ public class Item {
     @Column(updatable = false, name = "created_date")
     private Timestamp createdDate;
 
+    @Column(name = "image_path")
+    private String image;
+
 
 }

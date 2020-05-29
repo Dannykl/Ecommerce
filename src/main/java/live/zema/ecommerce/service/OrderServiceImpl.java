@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
         for (LineItemDto lineItemDto : orderDto.getLineItemsDto()) {
             item = new Item(lineItemDto.getItemDto().getId(), lineItemDto.getItemDto().getName(),
                     lineItemDto.getItemDto().getDescription(), lineItemDto.getItemDto().getPrice(),
-                    dateMapper.asTimestamp(lineItemDto.getItemDto().getCreatedDate()));
+                    dateMapper.asTimestamp(lineItemDto.getItemDto().getCreatedDate()),lineItemDto.getItemDto().getImage());
             lineItem = new LineItem(lineItemDto.getId(), lineItemDto.getQuantity(),
                     orderMapper.orderDtoToOrder(lineItemDto.getOrderDto()), item);
             listOfLineItems.add(lineItem);
@@ -103,7 +103,7 @@ public class OrderServiceImpl implements OrderService {
                     x.getItem().getName(),
                     x.getItem().getDescription(),
                     x.getItem().getPrice(),
-                    dateMapper.asOffsetDateTime(x.getItem().getCreatedDate()));
+                    dateMapper.asOffsetDateTime(x.getItem().getCreatedDate()),x.getItem().getImage());
 
 //            lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
 //                    orderMapper.orderToOrderDto(x.getOrder()), product);

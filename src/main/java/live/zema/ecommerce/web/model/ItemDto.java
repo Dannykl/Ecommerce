@@ -38,5 +38,6 @@ public class ItemDto {
     @Null
     private OffsetDateTime createdDate;
 
-
+    @Null
+    private String image;
 }
