@@ -20,15 +20,16 @@ import java.util.List;
 @Table(name = "orders")
 public class Order {
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_date")
     private Timestamp createdDate;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order",cascade = CascadeType.ALL)
-//    @JoinColumn(name = "order_id")
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
     private List<LineItem> lineItems;
 
     @ManyToOne
