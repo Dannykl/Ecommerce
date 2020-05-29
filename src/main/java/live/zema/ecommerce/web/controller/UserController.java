@@ -49,8 +49,7 @@ public class UserController {
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
         Optional<UserDto> userDto = userService.findByEmail(userData.get("email"));
-        System.out.println(userDto);
-        System.out.println(userDto);
+
         if (userDto.isEmpty()) {
             return ResponseEntity.badRequest()
                     .body(userData.get("email") + " was not found ");
