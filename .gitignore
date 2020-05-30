@@ -2,7 +2,7 @@
 # Project Specific
 ######################
 /build/www/**
-/src/main/resources/data.sql
+/src/main/resources/*.sql
 
 ######################
 # Node
