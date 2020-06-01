@@ -1,7 +1,6 @@
 package live.zema.ecommerce.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import live.zema.ecommerce.domain.Order;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,7 +29,7 @@ public class UserDto {
     RoleType roleType;
 
     @Null
-    private Set<Order> orders;
+    private Set<OrderDto> orders;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     @Null
