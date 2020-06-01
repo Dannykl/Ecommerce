@@ -44,12 +44,11 @@ public class UserController {
         return new ResponseEntity(userDto, HttpStatus.CREATED);
     }
 
-    //TODO returns identical nested data, CHECK THE DATA IS RETURNED FROM DATABASE, AND SEE THE CONVERSION FROM ENTITY TO DTO
     @PostMapping(path = "/login")
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
         Optional<UserDto> userDto = userService.findByEmail(userData.get("email"));
-
+        UserDto userDtoResult;
         if (userDto.isEmpty()) {
             return ResponseEntity.badRequest()
                     .body(userData.get("email") + " was not found ");
@@ -60,7 +59,8 @@ public class UserController {
             return ResponseEntity.badRequest()
                     .body("Incorrect password ");
         }
-        return new ResponseEntity(userDto, HttpStatus.OK);
+        userDtoResult = new UserDto(userDto.get().getEmail(),"",null,userDto.get().getOrders(),userDto.get().getCreatedDate());
+        return new ResponseEntity(userDtoResult, HttpStatus.OK);
     }
 
     //logIn
