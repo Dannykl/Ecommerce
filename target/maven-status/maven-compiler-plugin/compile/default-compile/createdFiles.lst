@@ -1,4 +1,5 @@
 live/zema/ecommerce/web/model/ItemDto.class
+live/zema/ecommerce/CorsConfig.class
 live/zema/ecommerce/web/mapper/ItemMapperImpl.class
 live/zema/ecommerce/web/mapper/UserMapperImpl.class
 live/zema/ecommerce/web/model/UserDto.class
@@ -20,6 +21,7 @@ live/zema/ecommerce/web/mapper/OrderMapperImpl.class
 live/zema/ecommerce/web/model/RoleType.class
 live/zema/ecommerce/bootstrap/UserLoader.class
 live/zema/ecommerce/web/mapper/LineItemMapper.class
+live/zema/ecommerce/CorsConfig$1.class
 live/zema/ecommerce/domain/Item$ItemBuilder.class
 live/zema/ecommerce/web/model/OrderDto.class
 live/zema/ecommerce/SpringFoxConfig.class
@@ -32,7 +34,6 @@ live/zema/ecommerce/web/mapper/ItemMapper.class
 live/zema/ecommerce/web/controller/ItemController.class
 live/zema/ecommerce/domain/LineItem.class
 live/zema/ecommerce/service/ItemService.class
-live/zema/configuration/DBConfiguration.class
 live/zema/ecommerce/domain/Item.class
 live/zema/ecommerce/repository/ItemRepository.class
 live/zema/ecommerce/repository/UserRepository.class

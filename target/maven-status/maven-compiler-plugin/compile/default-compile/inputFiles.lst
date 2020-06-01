@@ -21,6 +21,7 @@
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/configuration/DBConfiguration.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/controller/OrderController.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/mapper/ItemMapper.java
+/Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/CorsConfig.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/security/PasswordConfig.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/service/ItemServiceImpl.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/service/OrderService.java
