@@ -65,7 +65,8 @@ public class OrderServiceImpl implements OrderService {
                     lineItemToLineItemDto(i.getLineItems()),
                     userMapper.userToUserDto(
                             new User(i.getUser().getEmail(), null,
-                                    i.getUser().getRoleType(), null, i.getUser().getCreatedDate()))
+                                    i.getUser().getRoleType(), null,
+                                    i.getUser().getCreatedDate()))
 
             ));
         }
@@ -92,7 +93,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    private List<LineItemDto> lineItemToLineItemDto(List<LineItem> lineItem) {
+     List<LineItemDto> lineItemToLineItemDto(List<LineItem> lineItem) {
 
         List<LineItemDto> items = new ArrayList<>();
         ItemDto product;
@@ -104,9 +105,6 @@ public class OrderServiceImpl implements OrderService {
                     x.getItem().getDescription(),
                     x.getItem().getPrice(),
                     dateMapper.asOffsetDateTime(x.getItem().getCreatedDate()),x.getItem().getImage());
-
-//            lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
-//                    orderMapper.orderToOrderDto(x.getOrder()), product);
 
             lineItemDto = new LineItemDto(x.getId(), x.getQuantity(),
                     null, product);
