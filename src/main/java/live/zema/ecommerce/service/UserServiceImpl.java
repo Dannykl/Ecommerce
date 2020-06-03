@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
         return Optional.of(userDto);
     }
 
+    //TODO REMOVE the password from result
     @Override
     public UserDto save(UserDto userDto) {
         return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));

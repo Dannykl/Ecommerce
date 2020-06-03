@@ -44,6 +44,7 @@ public class UserController {
         return new ResponseEntity(userDto, HttpStatus.CREATED);
     }
 
+    //TODO TO BE REMOVED
     @PostMapping(path = "/login")
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
