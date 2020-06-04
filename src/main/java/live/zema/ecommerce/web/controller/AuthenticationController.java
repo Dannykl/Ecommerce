@@ -2,25 +2,19 @@ package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.util.JwtUtil;
 import live.zema.ecommerce.web.model.AuthRequest;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * @author danielniguse
  */
-//@RequiredArgsConstructor
 @RestController
 public class AuthenticationController {
 
     private JwtUtil jwtUtil;
     private AuthenticationManager authenticationManager;
-
-
 
     @Autowired
     public AuthenticationController(JwtUtil jwtUtil, AuthenticationManager authenticationManager) {

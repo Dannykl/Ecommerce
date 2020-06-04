@@ -9,6 +9,7 @@
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/model/RoleType.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/service/CustomUserDetailsService.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/mapper/DateMapper.java
+/Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/model/SignupResponse.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/mapper/UserMapper.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/repository/ItemRepository.java
 /Users/danielniguse/Documents/work_place/course/Ecommerce/src/main/java/live/zema/ecommerce/web/model/OrderDto.java

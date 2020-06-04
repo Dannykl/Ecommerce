@@ -31,6 +31,7 @@ live/zema/ecommerce/domain/User.class
 live/zema/ecommerce/web/controller/UserController.class
 live/zema/ecommerce/web/model/LineItemDto$LineItemDtoBuilder.class
 live/zema/ecommerce/web/mapper/LineItemMapperImpl.class
+live/zema/ecommerce/web/model/SignupResponse.class
 live/zema/ecommerce/web/mapper/ItemMapper.class
 live/zema/ecommerce/web/controller/AuthenticationController.class
 live/zema/ecommerce/web/controller/ItemController.class
