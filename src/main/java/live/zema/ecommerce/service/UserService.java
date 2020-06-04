@@ -1,5 +1,6 @@
 package live.zema.ecommerce.service;
 
+import live.zema.ecommerce.web.model.SignupResponse;
 import live.zema.ecommerce.web.model.UserDto;
 
 import java.util.Optional;
@@ -11,6 +12,6 @@ public interface UserService {
     //TODO TO BE REMOVED
     Optional<UserDto> findByEmail(String email);
 
-    UserDto save(UserDto userDto);
+    SignupResponse save(UserDto userDto);
 
 }
