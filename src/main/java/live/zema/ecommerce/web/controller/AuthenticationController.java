@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * @author danielniguse
  */
 @RestController
+@RequestMapping("/api/v1/authenticate")
 public class AuthenticationController {
 
     private JwtUtil jwtUtil;
@@ -22,7 +23,7 @@ public class AuthenticationController {
         this.authenticationManager = authenticationManager;
     }
 
-    @PostMapping("/authenticate")
+    @PostMapping
     public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
