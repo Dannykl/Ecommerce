@@ -26,7 +26,6 @@ public class OrderController {
     final ItemService itemService;
     final UserService userService;
 
-    //    @RequestMapping(value = "/{authorId}/book",
     @PostMapping
     ResponseEntity<?> placeOrder(@RequestBody OrderDto orderDto) {
         List<LineItemDto> listOfILineItems = new ArrayList<>();
@@ -56,14 +55,13 @@ public class OrderController {
         }
     }
 
-    //TODO RETURN NESTED DATA - EACH NESTED DATA IS IDENTICAL
+    //TODO THIS SHOULD ONLY BE USED BY ADMIN
     @GetMapping
     ResponseEntity finaAllOrders() {
         return new ResponseEntity(orderService.findAllOrder(), HttpStatus.OK);
     }
 
-    //TODO should be secured
-    //list all orders for specific user
+    //TODO email should be checked before proceed
     @GetMapping({"/{email}"})
     ResponseEntity getAllOrdersByUserEmail(@PathVariable String email) {
         return new ResponseEntity(orderService.findCustomerOrder(email), HttpStatus.OK);

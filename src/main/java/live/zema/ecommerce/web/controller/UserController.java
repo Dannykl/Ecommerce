@@ -1,6 +1,7 @@
 package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.service.UserService;
+import live.zema.ecommerce.web.model.SignupResponse;
 import live.zema.ecommerce.web.model.UserDto;
 import live.zema.ecommerce.web.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
@@ -23,13 +24,13 @@ import java.util.Optional;
 @RestController
 public class UserController {
     private final UserService userService;
-    //private final UserValidator userValidator;
     private final PasswordConfig passwordConfig;
 
+
     //sign-up
-    @PostMapping(path = "/sign-up")
+    @PostMapping(path = "/registration")
     ResponseEntity<?> signUp(@RequestBody UserDto userData) {
-        System.out.println(userData);
+
         Optional<UserDto> user = userService.findByEmail(userData.getEmail());
         if (!user.isEmpty()) {
             return ResponseEntity.badRequest()
@@ -38,12 +39,11 @@ public class UserController {
         //TODO
         //user validator eg. email, length of password
         //UserValidator.validate(userData);
-
-        userData.setPassword(passwordConfig.hashPassword(userData.getPassword()));
-        UserDto userDto = userService.save(userData);
-        return new ResponseEntity(userDto, HttpStatus.CREATED);
+        SignupResponse  signupResponse = userService.save(userData);
+        return new ResponseEntity(signupResponse, HttpStatus.CREATED);
     }
 
+    //TODO TO BE REMOVED
     @PostMapping(path = "/login")
     ResponseEntity<?> logIn(@RequestBody Map<String, String> userData) {
 
@@ -63,16 +63,11 @@ public class UserController {
         return new ResponseEntity(userDtoResult, HttpStatus.OK);
     }
 
-    //logIn
 
-
-    //createUser =>  this could only be used by admin
-
+    //TODO
+    //createUser =>  this could only be used by admin/user
     //getAllUsers => this could only be used by admin
+    //updateUser => this could only be used by admin/user
+    //deleteUser => this could only be used by admin/user
 
-    //updateUser => this could only be used by admin
-
-    //deleteUser => this could only be used by admin
-
-    //getUser ???
 }

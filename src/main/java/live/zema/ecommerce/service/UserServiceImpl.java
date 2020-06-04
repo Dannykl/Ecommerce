@@ -1,15 +1,14 @@
 package live.zema.ecommerce.service;
 
-import live.zema.ecommerce.domain.LineItem;
 import live.zema.ecommerce.domain.Order;
 import live.zema.ecommerce.domain.User;
 import live.zema.ecommerce.repository.UserRepository;
 import live.zema.ecommerce.web.mapper.DateMapper;
 import live.zema.ecommerce.web.mapper.UserMapper;
-import live.zema.ecommerce.web.model.ItemDto;
-import live.zema.ecommerce.web.model.LineItemDto;
 import live.zema.ecommerce.web.model.OrderDto;
+import live.zema.ecommerce.web.model.SignupResponse;
 import live.zema.ecommerce.web.model.UserDto;
+import live.zema.ecommerce.web.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final DateMapper dateMapper;
     private final OrderServiceImpl orderServiceImp;
+    private final PasswordConfig passwordConfig;
 
     @Override
     public Optional<UserDto> findByEmail(String email) {
@@ -50,8 +50,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto save(UserDto userDto) {
-        return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
+    public SignupResponse save(UserDto userDto) {
+        userDto.setPassword(passwordConfig.hashPassword(userDto.getPassword()));
+        var user = userRepository.save(userMapper.userDtoToUser(userDto));
+        return new SignupResponse(user.getEmail(),"account is created",dateMapper.asOffsetDateTime(user.getCreatedDate()));
+
     }
 
 }

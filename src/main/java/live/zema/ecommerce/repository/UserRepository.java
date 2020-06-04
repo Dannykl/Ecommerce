@@ -10,5 +10,6 @@ import java.util.Optional;
  */
 public interface UserRepository extends CrudRepository<User, String> {
 
+    //TODO TO BE REMOVED
     Optional<User> findByEmail(String email);
 }
