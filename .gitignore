@@ -4,6 +4,9 @@
 /build/www/**
 /src/main/resources/service-account.json
 /src/main/resources/*.sql
+/src/main/resources/spring-cloud-bootstrap.properties
+/src/main/resources/application-gcp.properties
+
 
 ######################
 # Node
@@ -69,6 +72,7 @@ local.properties
 ######################
 /log/
 */target/**
+target/*
 ######################
 # Gradle
 ######################
