@@ -46,13 +46,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.
-//                ignoring()
-//                .antMatchers("/v2/api-docs", "/configuration/ui",
-//                        "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**");
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.
+                ignoring()
+                .antMatchers("/v2/api-docs", "/configuration/ui",
+                        "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**");
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -62,7 +62,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/v1/authenticate", "/api/v1/user/registration")
                 .permitAll()
-                .antMatchers( "https://guarded-ridge-50822.herokuapp.com/api/v1/item", "/api/v1/item/*")
+                .antMatchers( "/api/v1/item", "/api/v1/item/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
