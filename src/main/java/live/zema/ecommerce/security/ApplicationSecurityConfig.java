@@ -62,7 +62,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/v1/authenticate", "/api/v1/user/registration")
                 .permitAll()
-                .antMatchers( "/api/v1/item", "/api/v1/item/*")
+                .antMatchers( "https://guarded-ridge-50822.herokuapp.com/api/v1/item", "/api/v1/item/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
