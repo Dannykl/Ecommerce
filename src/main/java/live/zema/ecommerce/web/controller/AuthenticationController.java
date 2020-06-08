@@ -30,7 +30,7 @@ public class AuthenticationController {
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception(ex + "invalid email or password");
+            throw new Exception(ex);
         }
         return jwtUtil.generateToken(authRequest.getEmail());
     }
