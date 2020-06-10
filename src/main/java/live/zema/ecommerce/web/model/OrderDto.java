@@ -34,8 +34,6 @@ public class OrderDto {
     @NotNull
     private List<LineItemDto> lineItemsDto;
 
-    //TODO this should be picked up from already loggedin user, therefore, the
-    //client shouldnt provide
-    @NotNull
+    @Null
     UserDto userDto;
 }
