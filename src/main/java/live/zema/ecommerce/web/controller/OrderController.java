@@ -9,6 +9,7 @@ import live.zema.ecommerce.web.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,25 +31,22 @@ public class OrderController {
     ResponseEntity<?> placeOrder(@RequestBody OrderDto orderDto) {
         List<LineItemDto> listOfILineItems = new ArrayList<>();
 
-        Optional<UserDto> userDto = userService.findByEmail(orderDto.getUserDto().getEmail());
-        if (userDto.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body(orderDto.getUserDto().getEmail() + " doesnt exist");
-        } else {
+        String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 
-            for (LineItemDto lineItem : orderDto.getLineItemsDto()) {
-                //check if the item exists
-                var item = itemService.getItem(lineItem.getItemDto().getId());
-                if (item.isEmpty()) {
-                    return ResponseEntity.badRequest().body("invalid item Id: " + lineItem.getItemDto().getId());
-                }
-                //lineItem
-                listOfILineItems.add(new LineItemDto(lineItem.getId(), lineItem.getQuantity(), lineItem.getOrderDto(), item.get()));
-
+        for (LineItemDto lineItem : orderDto.getLineItemsDto()) {
+            //check if the item exists
+            var item = itemService.getItem(lineItem.getItemDto().getId());
+            if (item.isEmpty()) {
+                return ResponseEntity.badRequest().body("invalid item Id: " + lineItem.getItemDto().getId());
             }
+            //lineItem
+            listOfILineItems.add(new LineItemDto(lineItem.getId(), lineItem.getQuantity(), lineItem.getOrderDto(), item.get()));
         }
+
+        UserDto currentUserDto = new UserDto(currentUser, null, null, null, null);
+
         try {
-            var order = orderService.placeOrder(new OrderDto(orderDto.getId(), orderDto.getCreatedDate(), listOfILineItems, orderDto.getUserDto()));
+            var order = orderService.placeOrder(new OrderDto(orderDto.getId(), orderDto.getCreatedDate(), listOfILineItems, currentUserDto));
             return ResponseEntity.ok(order);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Failed to place order " + e.getMessage());
