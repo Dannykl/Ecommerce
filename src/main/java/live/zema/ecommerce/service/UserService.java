@@ -1,7 +1,7 @@
 package live.zema.ecommerce.service;
 
-import live.zema.ecommerce.web.model.SignupResponse;
-import live.zema.ecommerce.web.model.UserDto;
+import live.zema.ecommerce.model.SignupResponse;
+import live.zema.ecommerce.model.UserDto;
 
 import java.util.Optional;
 

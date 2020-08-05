@@ -2,15 +2,14 @@ package live.zema.ecommerce.service;
 
 import live.zema.ecommerce.domain.Item;
 import live.zema.ecommerce.repository.ItemRepository;
-import live.zema.ecommerce.web.mapper.ItemMapper;
-import live.zema.ecommerce.web.model.ItemDto;
+import live.zema.ecommerce.mapper.ItemMapper;
+import live.zema.ecommerce.model.ItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * @author danielniguse

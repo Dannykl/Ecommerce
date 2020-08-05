@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.security;
+package live.zema.ecommerce.security;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.context.annotation.Configuration;

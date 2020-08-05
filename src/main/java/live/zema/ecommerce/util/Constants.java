@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.util;
+package live.zema.ecommerce.util;
 
 /**
  * @author danielniguse

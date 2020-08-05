@@ -3,12 +3,12 @@ package live.zema.ecommerce.service;
 import live.zema.ecommerce.domain.Order;
 import live.zema.ecommerce.domain.User;
 import live.zema.ecommerce.repository.UserRepository;
-import live.zema.ecommerce.web.mapper.DateMapper;
-import live.zema.ecommerce.web.mapper.UserMapper;
-import live.zema.ecommerce.web.model.OrderDto;
-import live.zema.ecommerce.web.model.SignupResponse;
-import live.zema.ecommerce.web.model.UserDto;
-import live.zema.ecommerce.web.security.PasswordConfig;
+import live.zema.ecommerce.mapper.DateMapper;
+import live.zema.ecommerce.mapper.UserMapper;
+import live.zema.ecommerce.model.OrderDto;
+import live.zema.ecommerce.model.SignupResponse;
+import live.zema.ecommerce.model.UserDto;
+import live.zema.ecommerce.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

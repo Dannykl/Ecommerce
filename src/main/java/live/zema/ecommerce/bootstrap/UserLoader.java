@@ -2,7 +2,7 @@ package live.zema.ecommerce.bootstrap;
 
 import live.zema.ecommerce.domain.User;
 import live.zema.ecommerce.repository.UserRepository;
-import live.zema.ecommerce.web.security.PasswordConfig;
+import live.zema.ecommerce.security.PasswordConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

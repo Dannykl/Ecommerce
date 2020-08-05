@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.model;
+package live.zema.ecommerce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Null;
-import java.util.UUID;
 
 /**
  * @author danielniguse

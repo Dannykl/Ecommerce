@@ -1,9 +1,9 @@
 package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.service.UserService;
-import live.zema.ecommerce.web.model.SignupResponse;
-import live.zema.ecommerce.web.model.UserDto;
-import live.zema.ecommerce.web.validator.UserValidator;
+import live.zema.ecommerce.model.SignupResponse;
+import live.zema.ecommerce.model.UserDto;
+import live.zema.ecommerce.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
