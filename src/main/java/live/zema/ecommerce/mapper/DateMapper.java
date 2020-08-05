@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.mapper;
+package live.zema.ecommerce.mapper;
 
 import org.springframework.stereotype.Component;
 

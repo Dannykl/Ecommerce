@@ -1,7 +1,7 @@
 package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.util.JwtUtil;
-import live.zema.ecommerce.web.model.AuthRequest;
+import live.zema.ecommerce.model.AuthRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

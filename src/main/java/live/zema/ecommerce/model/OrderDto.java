@@ -1,4 +1,4 @@
-package live.zema.ecommerce.web.model;
+package live.zema.ecommerce.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author danielniguse

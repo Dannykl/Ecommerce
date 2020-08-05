@@ -1,7 +1,8 @@
-package live.zema.ecommerce.web.model;
+package live.zema.ecommerce.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +13,7 @@ import java.time.OffsetDateTime;
  * @author danielniguse
  */
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class SignupResponse {
 
     private String owner;

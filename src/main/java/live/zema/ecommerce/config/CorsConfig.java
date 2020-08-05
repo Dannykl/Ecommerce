@@ -1,4 +1,4 @@
-package live.zema.ecommerce;
+package live.zema.ecommerce.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

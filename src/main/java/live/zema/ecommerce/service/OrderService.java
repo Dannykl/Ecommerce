@@ -1,6 +1,6 @@
 package live.zema.ecommerce.service;
 
-import live.zema.ecommerce.web.model.OrderDto;
+import live.zema.ecommerce.model.OrderDto;
 
 import java.util.List;
 import java.util.Set;

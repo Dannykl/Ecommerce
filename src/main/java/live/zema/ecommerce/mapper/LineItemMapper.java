@@ -1,7 +1,7 @@
-package live.zema.ecommerce.web.mapper;
+package live.zema.ecommerce.mapper;
 
 import live.zema.ecommerce.domain.LineItem;
-import live.zema.ecommerce.web.model.LineItemDto;
+import live.zema.ecommerce.model.LineItemDto;
 import org.mapstruct.Mapper;
 
 /**

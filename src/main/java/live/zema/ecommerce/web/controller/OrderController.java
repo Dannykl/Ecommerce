@@ -3,9 +3,9 @@ package live.zema.ecommerce.web.controller;
 import live.zema.ecommerce.service.ItemService;
 import live.zema.ecommerce.service.OrderService;
 import live.zema.ecommerce.service.UserService;
-import live.zema.ecommerce.web.model.LineItemDto;
-import live.zema.ecommerce.web.model.OrderDto;
-import live.zema.ecommerce.web.model.UserDto;
+import live.zema.ecommerce.model.LineItemDto;
+import live.zema.ecommerce.model.OrderDto;
+import live.zema.ecommerce.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author danielniguse

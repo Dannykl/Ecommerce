@@ -1,7 +1,7 @@
-package live.zema.ecommerce.web.mapper;
+package live.zema.ecommerce.mapper;
 
 import live.zema.ecommerce.domain.User;
-import live.zema.ecommerce.web.model.UserDto;
+import live.zema.ecommerce.model.UserDto;
 import org.mapstruct.Mapper;
 
 /**

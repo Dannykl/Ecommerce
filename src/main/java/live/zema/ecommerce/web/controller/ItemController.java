@@ -1,7 +1,7 @@
 package live.zema.ecommerce.web.controller;
 
 import live.zema.ecommerce.service.ItemService;
-import live.zema.ecommerce.web.model.ItemDto;
+import live.zema.ecommerce.model.ItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
