@@ -12,8 +12,7 @@ import java.sql.Timestamp;
  * @author danielniguse
  */
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

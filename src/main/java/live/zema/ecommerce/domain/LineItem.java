@@ -9,8 +9,7 @@ import javax.persistence.*;
  * @author danielniguse
  */
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
