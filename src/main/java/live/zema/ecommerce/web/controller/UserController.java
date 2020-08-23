@@ -1,17 +1,17 @@
 package live.zema.ecommerce.web.controller;
 
-import live.zema.ecommerce.service.UserService;
 import live.zema.ecommerce.model.SignupResponse;
 import live.zema.ecommerce.model.UserDto;
+import live.zema.ecommerce.service.UserService;
 import live.zema.ecommerce.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.validation.BindingResult;
 
 import java.util.Optional;
 
@@ -32,18 +32,17 @@ public class UserController {
     ResponseEntity<?> signUp(@RequestBody UserDto userData, BindingResult bindingResult) {
 
         Optional<UserDto> user = userService.findByEmail(userData.getEmail());
-        if (!user.isEmpty()) {
+        if (user.isPresent()) {
             return ResponseEntity.badRequest()
                     .body(userData.getEmail() + " is already exists on our system");
         }
         var validationResult = userValidator.validate(userData);
-        if (validationResult!=null) {
+        if (validationResult != null) {
             return ResponseEntity.badRequest().body(validationResult);
         }
-        SignupResponse  signupResponse = userService.save(userData);
+        SignupResponse signupResponse = userService.save(userData);
         return new ResponseEntity(signupResponse, HttpStatus.CREATED);
     }
-
 
 
     //TODO
