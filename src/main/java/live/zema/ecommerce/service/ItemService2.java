@@ -1,11 +1,9 @@
 package live.zema.ecommerce.service;
 
 import live.zema.ecommerce.domain.Item;
-import live.zema.ecommerce.mapper.ItemMapper;
 import live.zema.ecommerce.model.ItemDto;
 import live.zema.ecommerce.repository.ItemRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
