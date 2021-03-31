@@ -27,6 +27,8 @@ public class ItemController {
     ResponseEntity<ItemDto> getItem(@PathVariable long id) {
         return itemService2.getItem(id).map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+//        return itemService2.getItem(id).map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @GetMapping()

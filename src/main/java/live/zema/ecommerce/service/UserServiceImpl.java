@@ -9,7 +9,9 @@ import live.zema.ecommerce.model.OrderDto;
 import live.zema.ecommerce.model.SignupResponse;
 import live.zema.ecommerce.model.UserDto;
 import live.zema.ecommerce.security.PasswordConfig;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -17,9 +19,11 @@ import java.util.*;
 /**
  * @author danielniguse
  */
+//@NoArgsConstructor
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
+
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final DateMapper dateMapper;
